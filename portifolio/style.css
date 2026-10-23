@@ -1,0 +1,404 @@
+/* =========================================================
+   PORTFÓLIO - Vinicius
+   Estilo: moderno, com cards, gradientes suaves e tema escuro
+   ========================================================= */
+
+/* ===== Cores (variáveis) ===== */
+:root {
+  --bg: #f8fafc;
+  --bg-hero: linear-gradient(135deg, #e0e7ff 0%, #f5f3ff 50%, #fce7f3 100%);
+  --texto: #0f172a;
+  --texto-suave: #475569;
+  --card: #ffffff;
+  --borda: #e2e8f0;
+  --primaria: #4f46e5;
+  --primaria-escura: #4338ca;
+  --texto-botao: #ffffff;
+  --sombra: 0 4px 14px rgba(15, 23, 42, 0.08);
+  --sombra-forte: 0 12px 28px rgba(79, 70, 229, 0.18);
+  --erro: #b91c1c;
+  --sucesso: #166534;
+  --raio: 14px;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0b1020;
+  --bg-hero: linear-gradient(135deg, #1e1b4b 0%, #172554 50%, #3b0764 100%);
+  --texto: #e2e8f0;
+  --texto-suave: #94a3b8;
+  --card: #151b2e;
+  --borda: #263049;
+  --primaria: #818cf8;
+  --primaria-escura: #a5b4fc;
+  --texto-botao: #0b1020;
+  --sombra: 0 4px 14px rgba(0, 0, 0, 0.35);
+  --sombra-forte: 0 12px 28px rgba(129, 140, 248, 0.2);
+  --erro: #fca5a5;
+  --sucesso: #86efac;
+}
+
+/* ===== Base ===== */
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.7;
+  background: var(--bg);
+  color: var(--texto);
+  transition: background 0.3s, color 0.3s;
+}
+
+img { max-width: 100%; height: auto; }
+
+a { color: var(--primaria); }
+
+h1, h2, h3 { line-height: 1.2; margin-top: 0; }
+
+section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+/* Título das seções com detalhe colorido */
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+section h2::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 4px;
+  margin-top: 0.5rem;
+  background: var(--primaria);
+  border-radius: 4px;
+}
+
+/* Foco visível para navegação por teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--primaria);
+  outline-offset: 3px;
+}
+
+/* ===== Cabeçalho (Flexbox) ===== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.9rem 1.5rem;
+  background: var(--card);
+  border-bottom: 1px solid var(--borda);
+  box-shadow: var(--sombra);
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+  color: var(--texto);
+}
+
+.logo::before {
+  content: "< ";
+  color: var(--primaria);
+}
+
+.logo::after {
+  content: " />";
+  color: var(--primaria);
+}
+
+header button {
+  background: var(--bg);
+  border: 1px solid var(--borda);
+  color: var(--texto);
+  font-size: 1.1rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+header button:hover {
+  border-color: var(--primaria);
+  transform: translateY(-2px);
+}
+
+/* Menu: escondido no celular, aberto pelo JS com a classe "aberto" */
+nav { display: none; width: 100%; order: 3; }
+nav.aberto { display: block; }
+
+nav ul { list-style: none; margin: 0.8rem 0 0; padding: 0; }
+nav li { margin-bottom: 0.3rem; }
+
+nav a {
+  display: block;
+  padding: 0.6rem 0.9rem;
+  color: var(--texto);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: background 0.2s, color 0.2s;
+}
+
+nav a:hover {
+  background: var(--bg);
+  color: var(--primaria);
+}
+
+/* ===== Início (Flexbox) ===== */
+#inicio {
+  display: flex;
+  flex-direction: column-reverse; /* imagem em cima no celular */
+  align-items: center;
+  gap: 2.5rem;
+  text-align: center;
+  margin-top: 1.5rem;
+  background: var(--bg-hero);
+  border-radius: 24px;
+  box-shadow: var(--sombra);
+}
+
+#inicio h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+#inicio p {
+  font-size: 1.15rem;
+  color: var(--texto-suave);
+  margin: 0 0 1.5rem;
+}
+
+#inicio img {
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--card);
+  box-shadow: 0 0 0 5px var(--primaria), var(--sombra-forte);
+}
+
+.botao {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  background: var(--primaria);
+  color: var(--texto-botao);
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 999px;
+  box-shadow: var(--sombra);
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.botao:hover {
+  background: var(--primaria-escura);
+  transform: translateY(-3px);
+  box-shadow: var(--sombra-forte);
+}
+
+/* ===== Sobre ===== */
+#sobre p {
+  max-width: 70ch;
+  color: var(--texto-suave);
+  font-size: 1.05rem;
+}
+
+/* ===== Habilidades (Grid) ===== */
+#habilidades ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+#habilidades li {
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 1.2rem 1rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: var(--sombra);
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+#habilidades li:hover {
+  transform: translateY(-5px);
+  border-color: var(--primaria);
+  box-shadow: var(--sombra-forte);
+}
+
+/* ===== Projetos ===== */
+#projetos article {
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-top: 5px solid var(--primaria);
+  border-radius: var(--raio);
+  padding: 1.5rem;
+  margin-bottom: 1.2rem;
+  box-shadow: var(--sombra);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+#projetos article:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-forte);
+}
+
+#projetos h3 { font-size: 1.25rem; margin-bottom: 0.7rem; }
+#projetos p { color: var(--texto-suave); margin: 0 0 0.8rem; }
+#projetos strong { color: var(--texto); }
+
+/* ===== Formulário ===== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 540px;
+  padding: 1.8rem;
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+}
+
+label { font-weight: 600; }
+
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: 0.75rem 0.9rem;
+  border: 2px solid var(--borda);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--texto);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: var(--primaria);
+}
+
+textarea { min-height: 130px; resize: vertical; }
+
+.consentimento {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-weight: 400;
+  margin-top: 0.4rem;
+}
+
+.consentimento input {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 0.3rem;
+  accent-color: var(--primaria);
+}
+
+.aviso {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+  margin: 0;
+}
+
+form button {
+  margin-top: 0.4rem;
+  background: var(--primaria);
+  color: var(--texto-botao);
+  border: none;
+  padding: 0.85rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+form button:hover {
+  background: var(--primaria-escura);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-forte);
+}
+
+#erro { color: var(--erro); font-weight: 700; margin: 0; }
+#sucesso { color: var(--sucesso); font-weight: 700; margin: 0; }
+
+/* ===== Rodapé ===== */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  background: var(--card);
+  border-top: 1px solid var(--borda);
+}
+
+footer p { margin: 0; color: var(--texto-suave); }
+footer a { font-weight: 700; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+/* ===== Responsivo (a partir de 768px) ===== */
+@media (min-width: 768px) {
+  #menu-btn { display: none; }
+
+  nav { display: block; width: auto; order: 0; }
+  nav ul { display: flex; gap: 0.3rem; margin: 0; }
+  nav li { margin: 0; }
+
+  #inicio {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    padding: 4rem 3rem;
+  }
+
+  #inicio img { width: 260px; height: 260px; }
+
+  #projetos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+  #projetos h2 { grid-column: 1 / -1; }
+  #projetos article { margin-bottom: 0; }
+}
+
+/* Respeita quem pediu menos animação no sistema */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+  .botao:hover,
+  form button:hover,
+  header button:hover,
+  #habilidades li:hover,
+  #projetos article:hover { transform: none; }
+}

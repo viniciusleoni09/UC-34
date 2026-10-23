@@ -1,0 +1,655 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Portfólio | Estudante de Tecnologia</title>
+
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121a2e;
+      --text: #f3f6ff;
+      --muted: #aab5ce;
+      --accent: #6ee7f9;
+      --accent2: #8b7cff;
+      --border: rgba(255,255,255,.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: #0b1020;
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    .logo span,
+    .destaque {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: var(--panel);
+      color: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    .hero {
+      min-height: 75vh;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      align-items: center;
+      gap: 40px;
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      font-size: .8rem;
+      letter-spacing: 3px;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 6vw, 4.8rem);
+      line-height: 1.1;
+      margin: 18px 0;
+    }
+
+    .hero p,
+    .section-intro {
+      color: var(--muted);
+      max-width: 620px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: bold;
+      border: 1px solid var(--border);
+      transition: .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #07111f;
+    }
+
+    .btn-secondary {
+      background: var(--panel);
+    }
+
+    .profile-card,
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 25px;
+    }
+
+    .avatar {
+      aspect-ratio: 1.2;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      font-size: 6rem;
+      background: linear-gradient(
+        135deg,
+        rgba(110,231,249,.15),
+        rgba(139,124,255,.3)
+      );
+    }
+
+    .profile-card h2 {
+      margin-top: 18px;
+    }
+
+    .profile-card p,
+    .card p {
+      color: var(--muted);
+    }
+
+    .status {
+      display: inline-block;
+      margin-top: 12px;
+      color: #86efac;
+      font-size: .9rem;
+    }
+
+    section {
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
+
+    .section-heading {
+      margin-bottom: 28px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 8px 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      transition: .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+    }
+
+    .card .icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .tag {
+      padding: 5px 10px;
+      border-radius: 20px;
+      background: rgba(110,231,249,.08);
+      border: 1px solid rgba(110,231,249,.2);
+      font-size: .8rem;
+      color: #d6eaff;
+    }
+
+    .project-label {
+      color: var(--accent);
+      font-size: .8rem;
+      font-weight: bold;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 18px;
+      color: var(--accent);
+    }
+
+    .contact-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: linear-gradient(
+        110deg,
+        rgba(110,231,249,.08),
+        rgba(139,124,255,.12)
+      );
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    #topo {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      display: none;
+      background: var(--accent);
+      color: #07111f;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 16px;
+      cursor: pointer;
+    }
+
+    #topo.visivel {
+      display: block;
+    }
+
+    @media (max-width: 760px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: #0b1020;
+        padding: 20px 5%;
+        flex-direction: column;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="container">
+      <a class="logo" href="#inicio">
+        dev<span>.</span>estudante
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        aria-expanded="false"
+      >
+        ☰ Menu
+      </button>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="container hero" id="inicio">
+      <div>
+        <div class="eyebrow">
+          Portfólio • Estudante de tecnologia
+        </div>
+
+        <h1>
+          Olá, eu sou<br>
+          <span class="destaque">Seu Nome.</span>
+        </h1>
+
+        <p>
+          Sou estudante de tecnologia e estou aprendendo
+          a transformar ideias em soluções digitais,
+          principalmente usando Python.
+        </p>
+
+        <div class="actions">
+          <a href="#projetos" class="btn btn-primary">
+            Ver meus projetos ↗
+          </a>
+
+          <a href="#contato" class="btn btn-secondary">
+            Falar comigo
+          </a>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <div class="avatar">👨‍💻</div>
+
+        <h2>Futuro desenvolvedor</h2>
+
+        <p>
+          Curioso por tecnologia, programação com Python
+          e criação de projetos.
+        </p>
+
+        <div class="status">
+          ● Aprendendo e criando
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="sobre">
+      <div class="section-heading">
+        <div class="eyebrow">Sobre mim</div>
+
+        <h2>Construindo meu caminho na tecnologia.</h2>
+
+        <p class="section-intro">
+          Sou estudante de tecnologia e gosto de aprender
+          na prática. Quero desenvolver minhas habilidades
+          e criar projetos que resolvam problemas do dia a dia.
+        </p>
+      </div>
+    </section>
+
+    <section class="container" id="habilidades">
+      <div class="section-heading">
+        <div class="eyebrow">O que estou aprendendo</div>
+
+        <h2>Minhas habilidades</h2>
+
+        <p class="section-intro">
+          Tecnologias que fazem parte dos meus estudos.
+        </p>
+      </div>
+
+      <div class="grid">
+
+        <article class="card">
+          <div class="icon">🐍</div>
+
+          <h3>Python</h3>
+
+          <p>
+            Praticando lógica de programação, funções,
+            condicionais e desenvolvimento de pequenos programas.
+          </p>
+
+          <div class="tag-list">
+            <span class="tag">Lógica</span>
+            <span class="tag">Funções</span>
+            <span class="tag">Automação</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="icon">🌐</div>
+
+          <h3>HTML</h3>
+
+          <p>
+            Aprendendo a estruturar páginas de sites
+            com conteúdo organizado.
+          </p>
+
+          <div class="tag-list">
+            <span class="tag">Estrutura</span>
+            <span class="tag">Páginas web</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="icon">🎨</div>
+
+          <h3>CSS</h3>
+
+          <p>
+            Aprendendo a estilizar sites, trabalhar com cores
+            e organizar elementos na tela.
+          </p>
+
+          <div class="tag-list">
+            <span class="tag">Layouts</span>
+            <span class="tag">Design</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="container" id="projetos">
+      <div class="section-heading">
+        <div class="eyebrow">Prática em ação</div>
+
+        <h2>Meus projetos</h2>
+
+        <p class="section-intro">
+          Estes são exemplos de projetos que posso desenvolver
+          durante meus estudos.
+        </p>
+      </div>
+
+      <div class="grid">
+
+        <article class="card">
+          <span class="project-label">Projeto 01</span>
+
+          <h3>Conversor de unidades</h3>
+
+          <p>
+            Programa que converte metros em quilômetros,
+            centímetros e outras medidas.
+          </p>
+
+          <div class="tag-list">
+            <span class="tag">Python</span>
+            <span class="tag">Cálculos</span>
+          </div>
+
+          <a class="project-link" href="#contato">
+            Ver detalhes →
+          </a>
+        </article>
+
+        <article class="card">
+          <span class="project-label">Projeto 02</span>
+
+          <h3>Controle de tarefas</h3>
+
+          <p>
+            Programa para registrar atividades e organizar
+            tarefas do dia a dia.
+          </p>
+
+          <div class="tag-list">
+            <span class="tag">Python</span>
+            <span class="tag">Listas</span>
+          </div>
+
+          <a class="project-link" href="#contato">
+            Ver detalhes →
+          </a>
+        </article>
+
+        <article class="card">
+          <span class="project-label">Projeto 03</span>
+
+          <h3>Organizador de arquivos</h3>
+
+          <p>
+            Script para ajudar a organizar arquivos
+            em diferentes pastas do computador.
+          </p>
+
+          <div class="tag-list">
+            <span class="tag">Python</span>
+            <span class="tag">Automação</span>
+          </div>
+
+          <a class="project-link" href="#contato">
+            Ver detalhes →
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="container" id="contato">
+      <div class="contact-box">
+        <div>
+          <div class="eyebrow">Contato</div>
+
+          <h2>Vamos conversar?</h2>
+
+          <p>
+            Entre em contato comigo para falar sobre
+            tecnologia, estudos e projetos.
+          </p>
+        </div>
+
+        <a
+          class="btn btn-primary"
+          href="mailto:SEUEMAIL@exemplo.com"
+        >
+          Enviar e-mail ↗
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>
+        © <span id="ano"></span> Seu Nome.
+        Feito com HTML, CSS e JavaScript.
+      </span>
+
+      <a href="#inicio">Voltar ao topo ↑</a>
+    </div>
+  </footer>
+
+  <button id="topo" aria-label="Voltar ao topo">
+    ↑
+  </button>
+
+  <script>
+    // Atualiza o ano automaticamente.
+    document.getElementById("ano").textContent =
+      new Date().getFullYear();
+
+    // Menu para celular.
+    const botaoMenu = document.getElementById("menu-toggle");
+    const menu = document.getElementById("nav-links");
+
+    botaoMenu.addEventListener("click", function () {
+      const aberto = menu.classList.toggle("open");
+
+      botaoMenu.setAttribute("aria-expanded", aberto);
+      botaoMenu.textContent = aberto ? "✕ Fechar" : "☰ Menu";
+    });
+
+    // Fecha o menu depois de clicar em um link.
+    menu.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        menu.classList.remove("open");
+        botaoMenu.setAttribute("aria-expanded", "false");
+        botaoMenu.textContent = "☰ Menu";
+      });
+    });
+
+    // Botão de voltar ao topo.
+    const botaoTopo = document.getElementById("topo");
+
+    window.addEventListener("scroll", function () {
+      botaoTopo.classList.toggle(
+        "visivel",
+        window.scrollY > 400
+      );
+    });
+
+    botaoTopo.addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  </script>
+
+</body>
+</html>
