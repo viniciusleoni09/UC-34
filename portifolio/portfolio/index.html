@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinicius | Portfólio</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <a class="pular-conteudo" href="#conteudo">
+        Pular para o conteúdo
+    </a>
+
+    <header class="cabecalho" id="topo">
+        <nav class="container navegacao" aria-label="Menu principal">
+            <a class="logo" href="#inicio">vinicius<span>.dev</span></a>
+
+            <button class="botao-menu" id="botao-menu"
+                type="button" aria-label="Abrir menu"
+                aria-controls="links-menu" aria-expanded="false">
+                ☰
+            </button>
+
+            <div class="links-menu" id="links-menu">
+                <a href="#sobre">Sobre</a>
+                <a href="#habilidades">Habilidades</a>
+                <a href="#projetos">Projetos</a>
+                <a href="#contato">Contato</a>
+
+                <button class="botao-tema" id="botao-tema"
+                    type="button" aria-label="Ativar modo claro">
+                    ☀ <span id="texto-tema">Modo claro</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="conteudo">
+
+        <section class="hero container" id="inicio">
+            <div class="hero-texto">
+                <p class="sobretitulo">PORTFÓLIO DE ESTUDANTE</p>
+
+                <p class="saudacao" id="saudacao">Olá!</p>
+
+                <h1>Eu sou <span>Vinicius</span></h1>
+
+                <p class="descricao">
+                    Sou estudante de tecnologia e estou desenvolvendo
+                    minhas habilidades em programação, principalmente
+                    com Python. Gosto de aprender na prática e criar
+                    soluções para problemas do dia a dia.
+                </p>
+
+                <div class="botoes">
+                    <a href="#projetos" class="botao botao-principal">
+                        Conheça meus projetos ↘
+                    </a>
+
+                    <a href="#sobre" class="botao botao-secundario">
+                        Sobre mim
+                    </a>
+                </div>
+            </div>
+
+            <div class="avatar">
+                <div class="avatar-icone" role="img"
+                    aria-label="Ilustração de estudante de programação">
+                    👨🏽‍💻
+                </div>
+
+                <span class="etiqueta">🐍 Python</span>
+                <span class="etiqueta etiqueta-segunda">
+                    &lt;/&gt; Desenvolvedor em formação
+                </span>
+            </div>
+        </section>
+
+        <section class="secao container" id="sobre">
+            <p class="sobretitulo">01 / SOBRE MIM</p>
+
+            <h2>Aprendendo hoje para <span>criar amanhã.</span></h2>
+
+            <div class="sobre-texto">
+                <p>
+                    Meu nome é Vinicius e sou estudante da área
+                    de tecnologia. Tenho interesse em programação
+                    porque gosto de entender como os sites,
+                    aplicativos e sistemas funcionam.
+                </p>
+
+                <p>
+                    Atualmente, estudo principalmente Python e
+                    também estou aprendendo HTML, CSS e JavaScript.
+                    Quero melhorar minha lógica de programação e
+                    desenvolver projetos cada vez mais completos.
+                </p>
+            </div>
+        </section>
+
+        <section class="secao secao-fundo" id="habilidades">
+            <div class="container">
+                <p class="sobretitulo">02 / HABILIDADES</p>
+
+                <h2>O que estou aprendendo<span>.</span></h2>
+
+                <p class="descricao">
+                    Tecnologias que fazem parte dos meus estudos.
+                </p>
+
+                <div class="habilidades-grade">
+
+                    <article class="cartao">
+                        <div class="icone">🐍</div>
+                        <h3>Python</h3>
+                        <p>
+                            Pratico lógica de programação, variáveis,
+                            condicionais, repetições e funções.
+                        </p>
+                        <span class="nivel">Praticando</span>
+                    </article>
+
+                    <article class="cartao">
+                        <div class="icone">🌐</div>
+                        <h3>HTML</h3>
+                        <p>
+                            Aprendo a organizar o conteúdo de páginas
+                            usando elementos e tags semânticas.
+                        </p>
+                        <span class="nivel">Iniciante</span>
+                    </article>
+
+                    <article class="cartao">
+                        <div class="icone">🎨</div>
+                        <h3>CSS</h3>
+                        <p>
+                            Pratico cores, espaçamentos, layouts
+                            e adaptação de sites para celulares.
+                        </p>
+                        <span class="nivel">Iniciante</span>
+                    </article>
+
+                    <article class="cartao">
+                        <div class="icone">⚡</div>
+                        <h3>JavaScript</h3>
+                        <p>
+                            Estou aprendendo a criar interações
+                            e validar formulários em páginas web.
+                        </p>
+                        <span class="nivel">Aprendendo</span>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="secao container" id="projetos">
+            <p class="sobretitulo">03 / PROJETOS</p>
+
+            <h2>Meus projetos<span>.</span></h2>
+
+            <p class="descricao">
+                Alguns exemplos de exercícios que você pode
+                apresentar. Personalize com seus trabalhos reais.
+            </p>
+
+            <div class="filtros">
+                <button class="filtro ativo" data-filtro="todos"
+                    type="button" aria-pressed="true">Todos</button>
+
+                <button class="filtro" data-filtro="python"
+                    type="button" aria-pressed="false">Python</button>
+
+                <button class="filtro" data-filtro="web"
+                    type="button" aria-pressed="false">HTML/CSS</button>
+
+                <button class="filtro" data-filtro="javascript"
+                    type="button" aria-pressed="false">JavaScript</button>
+            </div>
+
+            <div class="projetos-grade" id="lista-projetos">
+                <p>Carregando projetos...</p>
+            </div>
+        </section>
+
+        <section class="secao secao-fundo" id="contato">
+            <div class="container contato-grade">
+                <div>
+                    <p class="sobretitulo">04 / CONTATO</p>
+
+                    <h2>Vamos conversar<span>?</span></h2>
+
+                    <p class="descricao">
+                        Preencha o formulário para testar a validação.
+                        Este modelo não envia os dados para um servidor.
+                    </p>
+
+                    <div class="redes">
+                        <a href="https://github.com/"
+                            target="_blank" rel="noopener noreferrer">
+                            GitHub ↗
+                        </a>
+
+                        <a href="https://www.linkedin.com/"
+                            target="_blank" rel="noopener noreferrer">
+                            LinkedIn ↗
+                        </a>
+                    </div>
+
+                    <p class="privacidade">
+                        Privacidade: os dados são usados apenas
+                        para a demonstração local do formulário.
+                        Não informe dados sensíveis.
+                    </p>
+                </div>
+
+                <form class="formulario" id="formulario-contato" novalidate>
+
+                    <div class="campo">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome"
+                            autocomplete="name" aria-describedby="erro-nome">
+                        <small class="erro" id="erro-nome"></small>
+                    </div>
+
+                    <div class="campo">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email"
+                            autocomplete="email" aria-describedby="erro-email">
+                        <small class="erro" id="erro-email"></small>
+                    </div>
+
+                    <div class="campo">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem"
+                            rows="5" aria-describedby="erro-mensagem"></textarea>
+                        <small class="erro" id="erro-mensagem"></small>
+                        <small class="ajuda">
+                            Escreva pelo menos 20 caracteres.
+                        </small>
+                    </div>
+
+                    <div class="consentimento">
+                        <input type="checkbox" id="consentimento"
+                            name="consentimento"
+                            aria-describedby="erro-consentimento">
+
+                        <label for="consentimento">
+                            Entendi que o formulário é demonstrativo.
+                        </label>
+                    </div>
+
+                    <small class="erro" id="erro-consentimento"></small>
+
+                    <button class="botao botao-principal botao-enviar"
+                        type="submit">
+                        Validar formulário →
+                    </button>
+
+                    <p id="mensagem-formulario"
+                        class="mensagem-formulario"
+                        role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="rodape">
+        <div class="container rodape-conteudo">
+            <p>
+                © <span id="ano-atual"></span> Vinicius.
+                Desenvolvido com dedicação.
+            </p>
+
+            <a href="#topo">Voltar ao topo ↑</a>
+        </div>
+    </footer>
+
+    <button class="voltar-topo" id="botao-topo"
+        type="button" aria-label="Voltar ao topo">
+        ↑
+    </button>
+
+</body>
+<link rel="stylesheet" href="css/style.css">
+</html>
