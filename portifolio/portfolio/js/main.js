@@ -1,10 +1,5 @@
-/*
-Uso de IA: utilizei o ChatGPT para ajudar a estruturar o exemplo,
-entender os requisitos e revisar a organização do código.
-Estou estudando as funções para conseguir explicá-las na apresentação.
-*/
 
-// Guarda os dados de exemplo dos projetos.
+
 const projetos = [
     {
         titulo: "Conversor de unidades",
